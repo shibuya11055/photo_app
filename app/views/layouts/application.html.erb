@@ -23,6 +23,17 @@
   </head>
 
   <body>
+    <!-- フラッシュメッセージの表示 -->
+    <% flash.each do |key, messages| %>
+      <div class="flash">
+        <ul>
+          <% Array(messages).each do |message| %>
+            <li class="flash-<%= key %>"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

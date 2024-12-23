@@ -1,0 +1,13 @@
+<%= form_with url: login_path, method: :post do |form| %>
+  <div>
+    <%= form.label :user_id, "ユーザーID" %>
+    <%= form.text_field :user_id %>
+  </div>
+  <div>
+    <%= form.label :password, "パスワード" %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "ログインする" %>
+  </div>
+<% end %>
