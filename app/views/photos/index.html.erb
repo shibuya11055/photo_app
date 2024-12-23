@@ -3,3 +3,22 @@
 <h1>写真一覧</h1>
 
 <%= link_to '写真を新規にアップロード', new_photo_path %>
+
+<% if @photos.any? %>
+  <div class="photos-grid">
+    <% @photos.each do |photo| %>
+      <div class="photo-item">
+        <p><%= photo.title %></p>
+        <div class="photo-frame">
+          <% if photo.image.attached? %>
+            <%= image_tag photo.image, class: "uploaded-photo" %>
+          <% else %>
+            <p>写真がありません</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>まだ写真がアップロードされていません。</p>
+<% end %>
