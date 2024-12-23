@@ -1,1 +1,28 @@
-new_photo
+<%= render 'shared/logout' %>
+
+<h1>写真アップロード</h1>
+
+<%= form_with model: @photo, url: photos_path, local: true do |form| %>
+  <% if @photo.errors.any? %>
+    <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li class="flash-alert"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "タイトル" %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :image, "画像ファイル" %><br>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "アップロード" %>
+    <%= link_to "キャンセル", photos_path %>
+  </div>
+<% end %>

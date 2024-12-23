@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      photo:
+        title: タイトル
+        image: 写真
+    errors:
+      messages:
+        blank: を入力してください
+        required: は必須です
+        too_long: は30文字以内にしてください
