@@ -16,6 +16,12 @@
             <p>写真がありません</p>
           <% end %>
         </div>
+        <% # ツイートボタン %>
+        <% if @has_access_token && photo.image.attached? %>
+          <div class="tweet-btn">
+            <button>ツイートする</button>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

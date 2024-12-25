@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = current_user.photos
+    @has_access_token = session[:access_token].present?
   end
 
   def new
