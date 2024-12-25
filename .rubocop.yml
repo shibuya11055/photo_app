@@ -2,10 +2,10 @@
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
 Style/StringLiterals:
-  EnforcedStyle: consistent
+  EnforcedStyle: single_quotes
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'config/**/*'
+    - 'test/**/*'

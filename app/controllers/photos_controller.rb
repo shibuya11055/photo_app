@@ -35,9 +35,9 @@ class PhotosController < ApplicationController
     response = ::MyTweetAppPostService.call(photo.title, image_url(photo), access_token, ENV['MY_TWEET_APP_POST_URL'])
 
     if response.code.to_i == 201
-      flash[:notice] = "ツイートに成功しました"
+      flash[:notice] = 'ツイートに成功しました'
     else
-      flash[:alert] = "ツイートに失敗しました"
+      flash[:alert] = 'ツイートに失敗しました'
     end
 
     redirect_to root_path

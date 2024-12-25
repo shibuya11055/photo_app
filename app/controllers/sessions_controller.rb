@@ -40,10 +40,10 @@ class SessionsController < ApplicationController
 
   def my_tweet_app_oauth
     auth_url = 'http://unifa-recruit-my-tweet-app.ap-northeast-1.elasticbeanstalk.com/oauth/authorize?' +
-    "response_type=code&" +
+    'response_type=code&' +
     "client_id=#{MY_TWEET_APP_CLIENT_ID}&" +
     "redirect_uri=#{REDIRECT_URI}&" +
-    "scope=write_tweet"
+    'scope=write_tweet'
     redirect_to(auth_url, allow_other_host: true)
   end
 
