@@ -25,21 +25,21 @@
 
 ## ER図
 
-```mermeid
+```mermaid
 erDiagram
-    users {
-        int id PK "ID"
-        string login_id "ログインID"
-        string password_digest "パスワード（ハッシュ化）"
-        datetime created_at "レコード作成日時"
-        datetime updated_at "レコード更新日時"
-    }
-    photos {
-        int id PK "ID"
-        int user_id FK "ユーザーID"
-        string title "写真タイトル"
-        datetime created_at "レコード作成日時"
-        datetime updated_at "レコード更新日時"
-    }
-    users ||--o{ photos : "has many"
+  users {
+      int id PK "ID"
+      string login_id "ログインID"
+      string password_digest "パスワード（ハッシュ化）"
+      datetime created_at "レコード作成日時"
+      datetime updated_at "レコード更新日時"
+  }
+  photos {
+      int id PK "ID"
+      int user_id FK "ユーザーID"
+      string title "写真タイトル"
+      datetime created_at "レコード作成日時"
+      datetime updated_at "レコード更新日時"
+  }
+  users ||--o{ photos : ""
 ```
