@@ -21,10 +21,35 @@ class PhotosController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def my_tweet_app_post
+    access_token = session[:access_token]
+
+    if access_token.blank?
+      flash[:alert] = 'アクセストークンがありません'
+      redirect_to root_path
+      return
+    end
+
+    photo = current_user.photos.find(params[:id])
+    response = ::MyTweetAppPostService.call(photo.title, image_url(photo), access_token, ENV['MY_TWEET_APP_POST_URL'])
+
+    if response.code.to_i == 201
+      flash[:notice] = "ツイートに成功しました"
+    else
+      flash[:alert] = "ツイートに失敗しました"
+    end
+
+    redirect_to root_path
+  end
 end
 
 private
 
 def photo_params
   params.require(:photo).permit(:title, :image)
+end
+
+def image_url(photo)
+  Rails.application.routes.url_helpers.rails_blob_url(photo.image, host: ENV['HOST'])
 end

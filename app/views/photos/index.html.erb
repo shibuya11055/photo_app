@@ -19,7 +19,7 @@
         <% # ツイートボタン %>
         <% if @has_access_token && photo.image.attached? %>
           <div class="tweet-btn">
-            <button>ツイートする</button>
+            <%= button_to 'ツイートする', my_tweet_app_post_photo_path(photo), method: :post %>
           </div>
         <% end %>
       </div>
